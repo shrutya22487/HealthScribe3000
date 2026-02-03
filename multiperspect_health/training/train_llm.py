@@ -1,11 +1,6 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-import os
-import yaml
-import json
-import torch
 from tqdm import tqdm
 from transformers import (
     PegasusTokenizer,
@@ -37,7 +32,7 @@ def train_llm():
     # val_data = val_data[:int(len(val_data) * 0.05)]
     # test_data = test_data[:int(len(val_data) * 0.05)]
     
-    tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-xsum")  # or your variant
+    tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-xsum")
     model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-xsum")
 
 
@@ -71,7 +66,7 @@ def train_llm():
         per_device_train_batch_size=2,
         per_device_eval_batch_size=2,
         num_train_epochs=3,
-        fp16=True,  # if you're on GPU with mixed precision support
+        fp16=True,
         report_to="none",
     )
 
@@ -111,7 +106,6 @@ def train_llm():
     trainer.save_model(config["training"]["llm"]["save_dir"])
     tokenizer.save_pretrained(config["training"]["llm"]["save_dir"])
 
-    # ########################################################################################################### #
     """GENERATE SAMPLE PREDICTIONS"""
     # test_dataset = LLMDataset(test_data, tokenizer, config, mode="test")
 
