@@ -162,10 +162,6 @@ Answer: Treatment involves healthy eating and regular physical activity...
 - Vansh Yadav – [@vansh22559](https://github.com/vansh22559)
 - Shrutya Chawla – [@shrutya22487](https://github.com/shrutya22487)
 
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
 ## 🌟 Show Your Support
 
 If you find this useful, leave a ⭐ on GitHub!
